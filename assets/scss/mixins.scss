@@ -1,0 +1,19 @@
+//For Mobile responsiveness view
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+//For Tablet responsiveness view
+@mixin tablet {
+  @media (min-width: #{$tablet}) and (max-width: 1200px) {
+    @content;
+  }
+}
+//For Desktop responsiveness view
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
