@@ -9,13 +9,22 @@
 </template>
 
 <script>
-export default {
+import Vue from 'vue'
+import { mapActions } from 'vuex'
+export default Vue.extend({
   data() {
     return {
       mt: 'margin-top',
     }
   },
-}
+
+  mounted() {
+    this.getRandomPhotos()
+  },
+  methods: {
+    ...mapActions(['getRandomPhotos']),
+  },
+})
 </script>
 
 <style scoped lang="scss">

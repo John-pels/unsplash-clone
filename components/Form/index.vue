@@ -22,7 +22,11 @@ export default Vue.extend({
   },
   methods: {
     onSubmit() {
-      this.$router.push({ name: 'search', query: { q: this.value } })
+      if (this.value.trim() !== '') {
+        this.$router.push({ name: 'search', query: { q: this.value } })
+      } else {
+        alert('Enter a keyword')
+      }
     },
   },
 })
