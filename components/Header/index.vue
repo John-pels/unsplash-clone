@@ -15,7 +15,6 @@ export default Vue.extend({})
 .header {
   background: #e3e3e3;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 4rem;
 

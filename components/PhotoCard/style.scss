@@ -1,0 +1,70 @@
+@import '../../assets/scss/mixins.scss';
+@import '../../assets/scss/variables.scss';
+
+.photos-container {
+  display: flex;
+  max-width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+  padding: 0 4px;
+
+  @include mobile {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  &__card {
+    flex: 30%;
+    max-width: 30%;
+    padding: 0 10px;
+    margin-bottom: 1rem;
+
+    &--photo {
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        width: 100%;
+        vertical-align: middle;
+        filter: brightness(0.5);
+        border-radius: 5px;
+      }
+    }
+
+    &--info {
+      position: absolute;
+      bottom: 1rem;
+      left: 0.5rem;
+      color: #fff;
+      z-index: 1000;
+
+      .name {
+        font-size: 0.7rem;
+      }
+      .location {
+        font-size: 0.5rem;
+        line-height: 1.5;
+      }
+    }
+
+    @include mobile {
+      flex: 50%;
+      max-width: 50%;
+    }
+
+    @media screen and (max-width: 600px) {
+      -ms-flex: 100%;
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+}

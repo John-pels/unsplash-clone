@@ -4,6 +4,7 @@
       <Form />
     </Header>
     <PhotoCard :class="mt" />
+    <Modal />
   </main>
 </template>
 

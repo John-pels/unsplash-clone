@@ -1,8 +1,9 @@
 <template>
-  <form class="form">
+  <form ref="form" class="form" @submit.prevent="onSubmit">
     <section class="form__input-group">
       <font-awesome-icon :icon="['fas', 'search']" class="icon" />
       <input
+        v-model="value"
         type="text"
         placeholder="search for photo"
         class="form__input-group--field"
@@ -12,42 +13,21 @@
 </template>
 
 <script>
-export default {}
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    return {
+      value: '',
+    }
+  },
+  methods: {
+    onSubmit() {
+      this.$router.push({ name: 'search', query: { q: this.value } })
+    },
+  },
+})
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/mixins.scss';
-@import '../../assets/scss/variables.scss';
-.form {
-  width: 85%;
-  margin: 0 auto;
-
-  @include mobile {
-    width: 100%;
-  }
-
-  &__input-group {
-    position: relative;
-
-    .icon {
-      position: absolute;
-      top: 0.8rem;
-      left: 1rem;
-      color: grey;
-    }
-
-    &--field {
-      width: 100%;
-      padding: 0.7rem 0.7rem 0.7rem 3.5rem;
-      border-radius: 5px;
-      outline: none;
-      transition: 0.3s;
-
-      &:focus {
-        outline: 0;
-        box-shadow: 0px 0px 1.02293px 1.0532px #4b4b4b;
-      }
-    }
-  }
-}
+@import './style.scss';
 </style>
