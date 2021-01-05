@@ -44,7 +44,6 @@ export const actions = {
       commit(IS_LOADING, true)
       const response = await this.$axios.$get(RANDOM)
       commit(GET_RANDOM, response)
-      console.log(response)
     } catch (error) {
       commit(IS_LOADING, false)
       throw new Error(error)
@@ -59,8 +58,6 @@ export const actions = {
       const response = await this.$axios.get(SEARCH(query))
       const returnedData = await response.data.results
       commit(GET_SEARCH_RESULTS, returnedData)
-
-      console.log(returnedData)
     } catch (error) {
       commit(IS_LOADING, false)
       throw new Error(error)
