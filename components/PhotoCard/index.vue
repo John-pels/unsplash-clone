@@ -1,7 +1,7 @@
 <template>
   <div class="card" @click="popup">
     <div class="card--photo">
-      <nuxt-image :src="photo.urls.regular" alt="pic" class="image" />
+      <img :src="photo.urls.regular" alt="pic" class="image" />
       <div class="card--info">
         <p class="name">
           {{ photo.user.first_name }} {{ photo.user.last_name }}

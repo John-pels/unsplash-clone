@@ -13,11 +13,7 @@
           <div class="modal__content" close="">
             <div v-if="photoInfo">
               <div class="modal__photo-wrapper">
-                <nuxt-image
-                  :src="photoInfo.urls.regular"
-                  alt="pic"
-                  class="photo"
-                />
+                <img :src="photoInfo.urls.regular" alt="pic" class="photo" />
               </div>
               <div class="modal__info">
                 <p class="name">
