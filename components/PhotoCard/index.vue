@@ -7,7 +7,7 @@
       @click="popup(photo)"
     >
       <div class="photo-container__card--photo">
-        <img :src="photo.urls.full" alt="pic" />
+        <nuxt-image :src="photo.urls.regular" alt="pic" class="image" />
         <div class="photo-container__card--info">
           <p class="name">
             {{ photo.user.first_name }} {{ photo.user.last_name }}

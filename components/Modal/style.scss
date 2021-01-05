@@ -18,7 +18,6 @@
     background: #fff;
     height: 65vh;
     border-radius: 10px;
-    animation: animate 3s 1 cubic-bezier(0, 1, 0.5, 1);
 
     @include mobile {
       width: 100%;
@@ -64,21 +63,31 @@
     }
   }
 
-  @keyframes animate {
-    from {
-      transform: translateY(70px);
-    }
-    to {
-      transform: translateY(0);
-    }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
   }
-}
 
-@-webkit-keyframes animate {
-  from {
-    transform: translateY(70px);
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
   }
-  to {
-    transform: translateY(0);
-  }
+
+  //   @keyframes animate {
+  //     from {
+  //       transform: translateY(70px);
+  //     }
+  //     to {
+  //       transform: translateY(0);
+  //     }
+  //   }
+  // }
+
+  // @-webkit-keyframes animate {
+  //   from {
+  //     transform: translateY(70px);
+  //   }
+  //   to {
+  //     transform: translateY(0);
+  //   }
 }
