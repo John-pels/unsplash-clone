@@ -15,7 +15,7 @@
   }
 
   &__card {
-    max-width: 33%;
+    width: 33%;
     padding: 0 10px;
     margin-bottom: 1rem;
     @include mobile {
@@ -63,6 +63,7 @@
     &:nth-child(7) {
       height: 280px;
       margin-top: -5.5rem;
+
       @include mobile {
         height: unset;
         margin-top: 0;
