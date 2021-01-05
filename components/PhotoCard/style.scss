@@ -1,111 +1,41 @@
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/variables.scss';
 
-.photo-container {
-  display: flex;
-  max-width: 70%;
-  margin-right: auto;
-  margin-left: auto;
-  flex-wrap: wrap;
-  padding: 0 4px;
-
-  @include mobile {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
-
-  &__card {
-    width: 33%;
-    padding: 0 10px;
+.card {
+  &--photo {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
     margin-bottom: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
 
-    @include mobile {
-      width: 50%;
+    &:hover {
+      transform: scale(1.05);
     }
 
-    &:nth-child(1) {
-      height: 140px;
-      @include mobile {
-        height: unset;
-      }
-    }
-    &:nth-child(2) {
-      height: 280px;
-      @include mobile {
-        height: unset;
-      }
-    }
-
-    &:nth-child(3) {
-      height: 220px;
-      @include mobile {
-        height: unset;
-      }
-    }
-
-    &:nth-child(4) {
-      height: 220px;
-      margin-top: -8.5rem;
-      @include mobile {
-        height: unset;
-        margin-top: 0;
-      }
-    }
-
-    &:nth-child(6) {
-      height: 220px;
-      margin-top: -3.5rem;
-      @include mobile {
-        height: unset;
-        margin-top: 0;
-      }
-    }
-
-    &:nth-child(7) {
-      height: 280px;
-      margin-top: -5.5rem;
-      @include mobile {
-        height: unset;
-        margin-top: 0;
-      }
-    }
-
-    &--photo {
+    .image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: relative;
-      margin-bottom: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-
-      .image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.5);
-        border-radius: 5px;
-      }
+      filter: brightness(0.5);
+      border-radius: 5px;
     }
+  }
 
-    &--info {
-      position: absolute;
-      bottom: 1rem;
-      left: 0.5rem;
-      color: #fff;
-      z-index: 1000;
+  &--info {
+    position: absolute;
+    bottom: 1rem;
+    left: 0.5rem;
+    color: #fff;
+    z-index: 1000;
 
-      .name {
-        font-size: 0.7rem;
-      }
-      .location {
-        font-size: 0.5rem;
-        line-height: 1.5;
-      }
+    .name {
+      font-size: 0.7rem;
+    }
+    .location {
+      font-size: 0.5rem;
+      line-height: 1.5;
     }
   }
 }

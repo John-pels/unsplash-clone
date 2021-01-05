@@ -41,10 +41,30 @@ export default Vue.extend({
   computed: {
     ...mapState(['toggleModal', 'photoInfo']),
   },
+  mounted() {
+    window.addEventListener('keyup', this.handleEscape)
+  },
+  destroyed() {
+    window.removeEventListener('keyup', this.handleEscape)
+    this.toggleModalAction(false)
+  },
   methods: {
     ...mapActions(['toggleModalAction']),
     handleClose() {
+      this.fixScroll(false)
       this.toggleModalAction(false)
+    },
+    handleEscape(e) {
+      if (e.keyCode === 27) {
+        this.handleClose()
+      }
+    },
+    fixScroll(val) {
+      if (val) {
+        window.document.body.classList.add('fixed')
+      } else {
+        window.document.body.classList.remove('fixed')
+      }
     },
   },
 })

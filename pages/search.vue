@@ -10,7 +10,7 @@
         <ContentLoader />
       </div>
       <div v-else>
-        <PhotoCard :class="mt" :photos="search" />
+        <List :class="mt" :photos="search" />
       </div>
     </section>
     <Modal />

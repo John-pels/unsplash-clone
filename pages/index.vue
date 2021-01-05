@@ -8,7 +8,7 @@
         <ContentLoader />
       </div>
       <div v-else>
-        <PhotoCard :class="mt" :photos="random" />
+        <List :class="mt" :photos="random" />
       </div>
     </section>
     <Modal />
