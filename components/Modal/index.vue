@@ -46,7 +46,6 @@ export default Vue.extend({
   },
   destroyed() {
     window.removeEventListener('keyup', this.handleEscape)
-    this.toggleModalAction(false)
   },
   methods: {
     ...mapActions(['toggleModalAction']),

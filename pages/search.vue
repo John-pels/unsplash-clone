@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="container" :class="toggleModal ? 'fixed' : ''">
     <Header>
       <h1 class="heading">
         Search Results for <span>"{{ query }}"</span>

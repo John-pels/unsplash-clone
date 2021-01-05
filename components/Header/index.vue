@@ -13,7 +13,7 @@ export default Vue.extend({})
 @import '../../assets/scss/mixins.scss';
 @import '../../assets/scss/variables.scss';
 .header {
-  background: #e3e3e3;
+  background: #eeeeee;
   display: flex;
   align-items: center;
   padding: 4rem;

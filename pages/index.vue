@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="container" :class="toggleModal ? 'fixed' : ''">
     <Header>
       <Form />
     </Header>
@@ -25,7 +25,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapState(['isLoading', 'random']),
+    ...mapState(['isLoading', 'random', 'toggleModal']),
   },
 
   mounted() {
