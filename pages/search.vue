@@ -29,7 +29,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapState(['isLoading', 'search']),
+    ...mapState(['isLoading', 'search', 'toggleModal']),
   },
   mounted() {
     this.searchByQuery(this.query)
