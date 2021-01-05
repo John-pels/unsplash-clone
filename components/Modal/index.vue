@@ -10,16 +10,16 @@
       </div>
       <div class="modal">
         <div class="modal__content">
-          <div class="modal__photo-wrapper">
-            <img
-              src="https://i.picsum.photos/id/1015/6000/4000.jpg?hmac=aHjb0fRa1t14DTIEBcoC12c5rAXOSwnVlaA5ujxPQ0I"
-              alt="pic"
-              class="photo"
-            />
-          </div>
-          <div class="modal__info">
-            <p class="name">Felix Navidad</p>
-            <p class="location">Location, Nigeria</p>
+          <div v-if="photoInfo">
+            <div class="modal__photo-wrapper">
+              <img :src="photoInfo.urls.full" alt="pic" class="photo" />
+            </div>
+            <div class="modal__info">
+              <p class="name">
+                {{ photoInfo.user.first_name }} {{ photoInfo.user.last_name }}
+              </p>
+              <p class="location">{{ photoInfo.user.location }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@ import { mapState, mapActions } from 'vuex'
 
 export default Vue.extend({
   computed: {
-    ...mapState(['toggleModal']),
+    ...mapState(['toggleModal', 'photoInfo']),
   },
   methods: {
     ...mapActions(['toggleModalAction']),

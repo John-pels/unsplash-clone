@@ -4,12 +4,14 @@ import {
   GET_RANDOM,
   GET_SEARCH_RESULTS,
   IS_LOADING,
+  PHOTO_INFO,
 } from './types'
 export const state = () => ({
   toggleModal: false,
   isLoading: false,
   random: [],
   search: [],
+  photoInfo: {},
 })
 
 export const mutations = {
@@ -25,11 +27,17 @@ export const mutations = {
   [IS_LOADING](state, bol) {
     state.isLoading = bol
   },
+  [PHOTO_INFO](state, payload) {
+    state.photoInfo = payload
+  },
 }
 
 export const actions = {
   toggleModalAction({ commit }, bol) {
     commit(TOGGLE_MODAL, bol)
+  },
+  grabPhotoInfo({ commit }, payload) {
+    commit(PHOTO_INFO, payload)
   },
   async getRandomPhotos({ commit }) {
     try {
@@ -40,18 +48,24 @@ export const actions = {
     } catch (error) {
       commit(IS_LOADING, false)
       throw new Error(error)
+    } finally {
+      commit(IS_LOADING, false)
     }
   },
 
   async searchByQuery({ commit }, query) {
     try {
       commit(IS_LOADING, true)
-      const response = await this.$axios.post(SEARCH(query))
-      commit(GET_SEARCH_RESULTS, response)
-      console.log(response)
+      const response = await this.$axios.get(SEARCH(query))
+      const returnedData = await response.data.results
+      commit(GET_SEARCH_RESULTS, returnedData)
+
+      console.log(returnedData)
     } catch (error) {
       commit(IS_LOADING, false)
       throw new Error(error)
+    } finally {
+      commit(IS_LOADING, false)
     }
   },
 }

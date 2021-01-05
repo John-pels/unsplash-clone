@@ -5,18 +5,37 @@
         Search Results for <span>"{{ query }}"</span>
       </h1>
     </Header>
-    <PhotoCard :class="mt" />
+    <section>
+      <div v-if="isLoading" class="loader">
+        <ContentLoader />
+      </div>
+      <div v-else>
+        <PhotoCard :class="mt" :photos="search" />
+      </div>
+    </section>
+    <Modal />
   </main>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 import Vue from 'vue'
+
 export default Vue.extend({
   data() {
     return {
       mt: 'margin-top',
       query: this.$route.query.q,
     }
+  },
+  computed: {
+    ...mapState(['isLoading', 'search']),
+  },
+  mounted() {
+    this.searchByQuery(this.query)
+  },
+  methods: {
+    ...mapActions(['searchByQuery']),
   },
 })
 </script>
@@ -34,6 +53,17 @@ export default Vue.extend({
 
   span {
     color: grey;
+  }
+}
+.loader {
+  max-width: 70%;
+  margin-top: -2rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include mobile {
+    max-width: 100%;
+    padding: 0 1rem;
   }
 }
 
